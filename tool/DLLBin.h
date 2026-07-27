@@ -18,7 +18,8 @@ private:
   constexpr auto EXPORT_TABLE = "0"; //*lists functions the DLL provides.
   constexpr auto IMPORT_TABLE = "-0928"; //*lists functions the DLL calls from other DLLs.
   constexpr auto RESOURCE_SECTION = "-0383"; //* contains icons, dialogs, strings, etc.
-  const std::string MZ_PE_SIG = "\0\0"; /*MZ PE signature if its a PE file
+  const std::string MZ_PE_SIG = "\0\0"; /*MZ PE signature if its a PE file*/
+  size_t SECTIONS = 0;
 public:
   /*constructor method*/
   /*loads name*/
@@ -34,6 +35,11 @@ public:
   /*if dll contains PE signature, return it of this dll file*/
   const std::string& getPESignature() const {
         return MZ_PE_SIG;
+  }
+
+  /*sections*/
+  const size_t getSections() const {
+      return SECTIONS;
   }
 
   /*is PE format*/
